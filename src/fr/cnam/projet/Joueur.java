@@ -14,7 +14,7 @@ public class Joueur
   public Joueur(String ident,
                 String mdp)
   {
-    this.ident=ident;
+    this.ident = ident;
     this.mdp = mdp;
   }
 

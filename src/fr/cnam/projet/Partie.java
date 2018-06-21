@@ -24,13 +24,13 @@ public class Partie
                 int scoreJoueur,
                 int scoreAdversaire)
   {
-    this.numPartie=numPartie;
-    this.ident=ident;
-    this.date=date;
-    //this.jeu=jeu;
-    this.etatPartie=etatPartie;
-    this.scoreJoueur=scoreJoueur;
-    this.scoreAdversaire=scoreAdversaire;
+    this.numPartie = numPartie;
+    this.ident = ident;
+    this.date = date;
+    //this.jeu = jeu;
+    this.etatPartie = etatPartie;
+    this.scoreJoueur = scoreJoueur;
+    this.scoreAdversaire = scoreAdversaire;
   }
 
   // Partie en chaine

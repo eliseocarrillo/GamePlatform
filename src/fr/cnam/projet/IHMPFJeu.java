@@ -133,7 +133,7 @@ public class IHMPFJeu extends AdaptaterControlesCanvasIHM implements FormulaireI
       String adversaire = form.getValeurChamp("LISTE_ADVERSAIRES");
       pfjeu.setIdentificationAdversaire(true);
       form.setValeurChamp("ADVERSAIRE", adversaire);
-      String res = "Vous venez de choisir "+adversaire+" comme adversaire";
+      String res = "Vous venez de choisir " + adversaire + " comme adversaire";
       form.setValeurChamp("RESULTATS", res);
     }
     
@@ -172,7 +172,7 @@ public class IHMPFJeu extends AdaptaterControlesCanvasIHM implements FormulaireI
   public void afficherResultat(String res)
   {
     if (res.equals("")) form.setValeurChamp("RESULTATS","");
-    else form.setValeurChamp("RESULTATS",form.getValeurChamp("RESULTATS")+"\n"+res);
+    else form.setValeurChamp("RESULTATS",form.getValeurChamp("RESULTATS") + "\n" + res);
   }
 
   // Getteurs

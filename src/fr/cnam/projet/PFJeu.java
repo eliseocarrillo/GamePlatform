@@ -36,14 +36,14 @@ private Othello othello;                            // Le jeu d'othello
   {
     this.ihm = ihm;
 
-    String res="Initialisation de la plate-forme de jeu :\n";
+    String res = "Initialisation de la plate-forme de jeu :\n";
       
     // Lecture du fichier des joueurs inscrits
     //
-    res=res+"Lecture du fichier des joueurs inscrits\n";
+    res = res + "Lecture du fichier des joueurs inscrits\n";
     String[] lignesJoueurs = Terminal.lireFichierTexte("data/Joueurs.txt");
     if (lignesJoueurs == null) {
-      res=res+"Impossible de lire le fichier data/Joueurs.txt\n";
+      res = res + "Impossible de lire le fichier data/Joueurs.txt\n";
       return res;
     }
       
@@ -62,11 +62,11 @@ private Othello othello;                            // Le jeu d'othello
 
     // Lecture du fichier des parties jouees
     // 
-    res=res+"Lecture du fichier des parties inscrits\n";
+    res = res + "Lecture du fichier des parties inscrits\n";
     String[] lignesParties = Terminal.lireFichierTexte("data/Parties.txt");
     if (lignesParties == null) 
       {
-        res=res+"Impossible de lire le fichier data/Parties.txt\n";
+        res = res + "Impossible de lire le fichier data/Parties.txt\n";
         return res;
       }
       
@@ -90,7 +90,7 @@ private Othello othello;                            // Le jeu d'othello
 
     // Initialisation du jeu d'othello
     //
-    res = res+othello.initialiser(this);
+    res = res + othello.initialiser(this);
 
     return res;
   }
@@ -99,9 +99,9 @@ private Othello othello;                            // Le jeu d'othello
   // tous les joueurs
   //
   public String listerTousJoueurs() {
-    String res="";
+    String res = "";
     for (Joueur joueur:listJoueurs) {
-      res=res+joueur.toString()+"\n";
+      res = res + joueur.toString() + "\n";
     }
     return res;
   }
@@ -110,9 +110,9 @@ private Othello othello;                            // Le jeu d'othello
   // toutes les parties
   //
   public String listerToutesParties() {
-    String res="";
+    String res = "";
     for (Partie partie:listParties) {
-      res=res+partie.toString()+"\n";
+      res = res + partie.toString() + "\n";
     }
     return res;
   }
@@ -120,7 +120,7 @@ private Othello othello;                            // Le jeu d'othello
   // Methode pour inscrire un nouveau joueur
   //
   public String inscrire(String ident, String mdp) {
-    String res="";
+    String res = "";
     boolean joueurInscrit = false;
     for(Joueur joueur:listJoueurs) {
       if (joueur.getIdent().equals(ident)) {
@@ -131,25 +131,25 @@ private Othello othello;                            // Le jeu d'othello
     // Conditions d'acceptation de l'identifiant et le mdp
     // du joueur a inscrire
     if (joueurInscrit == true) {
-      res=res+"Le joueur saisi existe deja\n";
+      res = res + "Le joueur saisi existe deja\n";
     }
     else if(ident.contains(" ")) {
-      res=res+"L'identifiant du joueur saisi contient un caractere blanc, ce qui n'est pas possible\n";
+      res = res + "L'identifiant du joueur saisi contient un caractere blanc, ce qui n'est pas possible\n";
     }
-    else if(ident.length()==0) {
-      res=res+"Il manque l'identifiant du joueur\n";
+    else if(ident.length() == 0) {
+      res = res + "Il manque l'identifiant du joueur\n";
     }
-    else if(mdp.length()==0) {
-      res=res+"Il manque le mot de passe du joueur\n";
+    else if(mdp.length() == 0) {
+      res = res + "Il manque le mot de passe du joueur\n";
     }
     else if(mdp.contains(" ")) {
-      res=res+"Le mot de passe contient un caractere blanc, ce qui n'est pas possible\n";
+      res = res + "Le mot de passe contient un caractere blanc, ce qui n'est pas possible\n";
     }
-    else if(mdp.length()>15) {
-      res=res+"Le mot de passe contient plus de 15 caracteres\n";
+    else if(mdp.length() > 15) {
+      res = res + "Le mot de passe contient plus de 15 caracteres\n";
     }
-    else if(ident.length()==0 && mdp.length()==0) {
-      res=res+"Ils manquent l'identifiant et le mot de passe du joueur\n";
+    else if(ident.length() == 0 && mdp.length() == 0) {
+      res = res + "Ils manquent l'identifiant et le mot de passe du joueur\n";
     }
     else {
       // Creation du joueur
@@ -162,7 +162,7 @@ private Othello othello;                            // Le jeu d'othello
       listJoueurs.add(joueur);
         
       // Message affiche lors de la creation du joueur
-      res=res+"Le joueur "+ident+" a ete inscrit avec succes\n";
+      res = res + "Le joueur " + ident + " a ete inscrit avec succes\n";
     }
     return res;
   }
@@ -176,9 +176,9 @@ private Othello othello;                            // Le jeu d'othello
     for(Joueur joueur:listJoueurs) {
       if (joueur.getIdent().equals(ident) && joueur.getMdp().equals(mdp)) {
         identificationJoueur = true;
-        arrIdent=ident;
+        arrIdent = ident;
         res.add(arrIdent);
-        arrRes=arrRes+"Bonjour "+ident+", vous vous etes bien authentifie";
+        arrRes = arrRes + "Bonjour " + ident + ", vous vous etes bien authentifie";
         res.add(arrRes);
       }
     }
@@ -188,21 +188,21 @@ private Othello othello;                            // Le jeu d'othello
   // Methode pour lister toutes les parties du joueur identifie
   //
   public String listerPartiesJoueurCourant(String ident) {
-    String res="";
+    String res = "";
     boolean aucunePartie = true;    
     if (identificationJoueur == true) {
       for (Partie partie:listParties) {
         if (partie.getIdent().equals(ident)) {
           aucunePartie = false;
-          res=res+partie.toString()+"\n";
+          res = res + partie.toString() + "\n";
         }
       }
       if (aucunePartie == true) {
-        res=res+"Le joueur identifie n'a joue aucune partie\n";
+        res = res + "Le joueur identifie n'a joue aucune partie\n";
       }
     }
     else {
-      res=res+"Aucun joueur est identifie\n";
+      res = res + "Aucun joueur est identifie\n";
     }
     return res;
   }
@@ -212,7 +212,7 @@ private Othello othello;                            // Le jeu d'othello
   public String[] listerAdversaires() {
     String[] arrAdversaires;
     arrAdversaires = new String[listJoueurs.size()];
-    for(int i=0; i<listJoueurs.size(); i++) {
+    for(int i = 0; i < listJoueurs.size(); i++) {
       arrAdversaires[i] = listJoueurs.get(i).getIdent();
     }
     return arrAdversaires;
@@ -223,7 +223,7 @@ private Othello othello;                            // Le jeu d'othello
   public String demarrer() {
     String res = "";
     if (identificationJoueur == true && identificationAdversaire == true) {
-      res = res+"C'est parti!";    
+      res = res + "C'est parti!";    
     }
     else {
       res = res + "Il manque un joueur ou un adversaire a identifier";
@@ -235,13 +235,13 @@ private Othello othello;                            // Le jeu d'othello
   //
   public String arreter() {
     // Boolean de l'ihm pour demarrer le jeu
-    getIhm().demarrage=false;    
+    getIhm().demarrage = false;    
     // Boolean de l'ihm pour arreter le jeu
-    getIhm().arret=true;
+    getIhm().arret = true;
     
     // String a afficher dans l'ihm
     String res = "";
-    res=res+"C'est fini! Parti terminee!\n";
+    res = res + "C'est fini! Parti terminee!\n";
     
     // Arguments des parties
     String joueur = getIhm().form.getValeurChamp("IDENT");                  // Joueur
@@ -251,7 +251,7 @@ private Othello othello;                            // Le jeu d'othello
     int scoreJoueur = getOthello().score(couleurJoueur);                    // Score du joueur
     int scoreAdversaire = getOthello().score(couleurAdversaire);            // Score de l'adversaire
     String etatPartie = getOthello().getEtatPartie();                       // Etat de la partie
-    int numPartie = listParties.get(listParties.size()-1).getNumPartie()+1; // Numero de partie
+    int numPartie = listParties.get(listParties.size() - 1).getNumPartie() + 1; // Numero de partie
     Date date = new Date();                                                 // Date 
     SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
     String strDate = sdf.format(date);
@@ -273,21 +273,21 @@ private Othello othello;                            // Le jeu d'othello
                   scoreJoueur);
                   
     // Strings avec les info des 2 parties creees
-    res=res+"Voici le resultat de chaque joueur:\n";
-    res=res+"- "+joueur+" : "+scoreJoueur+" pions noirs\n";
-    res=res+"- "+adversaire+" : "+scoreAdversaire+" pions verts\n";
+    res = res + "Voici le resultat de chaque joueur:\n";
+    res = res + "- " + joueur + " : " + scoreJoueur + " pions noirs\n";
+    res = res + "- " + adversaire + " : " + scoreAdversaire + " pions verts\n";
     
     // Affichage du gagnant
     int couleurGagnant = getOthello().couleurGagnant(couleurJoueur,couleurAdversaire);
-    String gagnant="";        
-    if (couleurGagnant==couleurJoueur) {
+    String gagnant = "";        
+    if (couleurGagnant == couleurJoueur) {
       gagnant = joueur;      
-    } else if (couleurGagnant==0) {
+    } else if (couleurGagnant == 0) {
       gagnant = "Aucun";
-    } else if (couleurGagnant==couleurAdversaire) {
+    } else if (couleurGagnant == couleurAdversaire) {
       gagnant = adversaire;
     }
-    res=res+"Donc le gagnant est : "+gagnant;
+    res = res + "Donc le gagnant est : " + gagnant;
     return res;
   }
   
